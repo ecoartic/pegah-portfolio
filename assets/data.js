@@ -130,7 +130,7 @@ window.SITE = {
    "cat": "interior",
    "en": "Green-Ceiling Room",
    "fa": "اتاق با سقف سبز",
-   "cover": "5924601338807389951 (1).jpg",
+   "cover": "5924601338807389951.jpg",
    "files": [
     "5924601338807389951.jpg",
     "5924601338807389952.jpg"
