@@ -180,17 +180,19 @@
     const rtl = lang === "fa", sgn = rtl ? -1 : 1;
 
     mm.add("(min-width: 861px) and (prefers-reduced-motion: no-preference)", () => {
-      const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: "#hero", start: "top top", end: "+=90%", scrub: .8, pin: true } });
-      tl.to(".name-a", { xPercent: -230 * sgn, autoAlpha: 0, ease: "power1.in", duration: .35 }, 0)
-        .to(".name-b", { xPercent: 230 * sgn, autoAlpha: 0, ease: "power1.in", duration: .35 }, 0)
-        .to(".hero-sub, .hero-meta", { autoAlpha: 0, y: -16, duration: .2 }, 0)
-        .to(".hero-window", { clipPath: "inset(13% 22% 20% 22%)", ease: "power2.inOut", duration: .45 }, 0)
-        .to(".hero-bg", { opacity: 1, duration: .45 }, 0)
-        .to(".hero-img", { yPercent: -4, scale: 1.06, duration: .6 }, 0)
-        .to(".hero-img", { filter: "brightness(.5)", duration: .25 }, .35)
-        .to(".frame-lines", { opacity: 1, duration: .15 }, .38)
-        .to(".hero-after", { opacity: 1, y: 0, ease: "power2.out", duration: .25 }, .45)
-        .to({}, { duration: .3 });
+      // Hero stays fixed while the About section slides up over it (curtain);
+      // the frame closes and the line appears in the first part of that rise.
+      ScrollTrigger.create({ trigger: "#hero", start: "top top", end: "+=100%", pin: true, pinSpacing: false });
+      const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: "#hero", start: "top top", end: "+=48%", scrub: .5 } });
+      tl.to(".name-a", { xPercent: -230 * sgn, autoAlpha: 0, ease: "power1.in", duration: .5 }, 0)
+        .to(".name-b", { xPercent: 230 * sgn, autoAlpha: 0, ease: "power1.in", duration: .5 }, 0)
+        .to(".hero-sub, .hero-meta", { autoAlpha: 0, duration: .3 }, 0)
+        .to(".hero-window", { clipPath: "inset(10% 22% 26% 22%)", ease: "power2.inOut", duration: .6 }, 0)
+        .to(".hero-bg", { opacity: 1, duration: .6 }, 0)
+        .to(".hero-img", { scale: 1.05, duration: 1 }, 0)
+        .to(".window-dim", { opacity: .5, duration: .3 }, .45)
+        .to(".frame-lines", { opacity: 1, duration: .2 }, .5)
+        .to(".hero-after", { opacity: 1, y: 0, ease: "power2.out", duration: .35 }, .55);
 
       const track = $("#hz");
       const dist = () => Math.max(0, track.scrollWidth - innerWidth);
