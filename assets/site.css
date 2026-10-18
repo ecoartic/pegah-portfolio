@@ -76,7 +76,8 @@ html[lang="fa"] .hero-name{font-family:"Markazi Text","Vazirmatn",serif;font-wei
 .hero-name span{display:block;will-change:transform}
 .hero-sub{position:absolute;left:0;right:0;top:calc(47% + clamp(50px,7.4vw,124px));text-align:center;font:400 clamp(16px,1.7vw,22px)/1.3 var(--body);letter-spacing:.03em}
 .hero-sub i{font-style:normal;color:var(--accent);padding-inline:.6em}
-.hero-after{position:absolute;left:0;right:0;bottom:8%;padding-left:var(--gut);padding-right:var(--gut-r);text-align:center;opacity:0;transform:translateY(24px);pointer-events:none}
+.hero-after{position:absolute;inset:13% 22% 20% 22%;display:grid;place-items:center;padding-inline:clamp(16px,4vw,64px);text-align:center;opacity:0;transform:translateY(24px);pointer-events:none}
+.hero-after p{text-shadow:0 2px 24px rgba(0,0,0,.55)}
 .hero-after p{font:italic 400 clamp(22px,2.5vw,36px)/1.3 var(--display);max-width:28ch;margin-inline:auto}
 html[lang="fa"] .hero-after p{font-style:normal;font-size:clamp(26px,2.8vw,42px);line-height:1.5}
 .hero-meta{position:absolute;left:0;right:0;bottom:22px;padding-left:var(--gut);padding-right:var(--gut-r);display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
